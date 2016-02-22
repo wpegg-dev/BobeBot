@@ -25,5 +25,5 @@ bobeActions = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /(what's|what)( bo)( doing)? (.+)/i, (msg) ->
+  robot.hear /(what's|what is)( bo)( doing)? (.+)/i, (msg) ->
     msg.send msg.random bobeActions
