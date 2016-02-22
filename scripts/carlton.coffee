@@ -14,9 +14,11 @@
 #   pingles
 
 carltons = [
-  bot_user_id
+  "I don't dance"
 ]
 
 module.exports = (robot) ->
   robot.hear /\b(dance|happy)\b/i, (msg) ->
+  
+  robot.respond ->
     msg.send msg.random carltons
