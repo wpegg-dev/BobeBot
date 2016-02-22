@@ -9,4 +9,4 @@ module.exports = (robot) ->
     else if hour >= 17 and hour < 21
       msg.reply "Good Afternoon!"
     else
-      msg.reply "Good Evening!"+hour
+      msg.reply "Good Evening!"
