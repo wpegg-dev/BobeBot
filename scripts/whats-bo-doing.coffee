@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   what's bo doing - Tell you what Moe is up to
+#   what's bo doing - Tell you what Bo is up to
 #
 # Author:
 #   wpegg-dev
