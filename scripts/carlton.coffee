@@ -14,7 +14,7 @@
 #   pingles
 
 carltons = [
-  "I don't dance"
+  bot_user_id
 ]
 
 module.exports = (robot) ->
