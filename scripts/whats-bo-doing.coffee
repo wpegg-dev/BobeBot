@@ -16,7 +16,9 @@
 mimiActions = [
   "Sleeping",
   "Licking",
-  "Playing"
+  "Playing with Sis",
+  "Playing with Mimi",
+  "Doing the bad things"
 ]
 
 module.exports = (robot) ->
