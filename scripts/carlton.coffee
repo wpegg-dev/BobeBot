@@ -14,7 +14,7 @@
 #   pingles
 
 carltons = [
-  "I don't dance"
+  "I don't dance. I prefer to study."
 ]
 
 module.exports = (robot) ->
