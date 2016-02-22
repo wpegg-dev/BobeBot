@@ -13,14 +13,17 @@
 # Author:
 #   wpegg-dev
 
-mimiActions = [
+bobeActions = [
   "Sleeping",
   "Licking",
   "Playing with Sis",
   "Playing with Mimi",
-  "Doing the bad things"
+  "Doing the bad things",
+  "At the practice",
+  "Reading medical journals",
+  "Listening to Brahms"
 ]
 
 module.exports = (robot) ->
   robot.hear /(what's|what)( bo)( doing)? (.+)/i, (msg) ->
-    msg.send msg.random mimiActions
+    msg.send msg.random bobeActions
