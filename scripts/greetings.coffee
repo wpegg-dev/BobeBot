@@ -1,7 +1,7 @@
 module.exports = (robot) ->
   robot.respond /(thanks|thank)( | you)? (.+)/i, (msg) ->
     msg.send "You're welcome! Bow-wow"
-  robot.hear /(hi|hello|sup|hey)( bo|bobe|bobee)? (.+)/i, (msg) ->
+  robot.respond /(hi|hello|sup|hey)( bo|bobe|bobee)? (.+)/i, (msg) ->
     today = new Date
     hour = today.getHours()
     if hour >= 5 and hour < 17
