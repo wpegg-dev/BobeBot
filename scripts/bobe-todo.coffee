@@ -36,6 +36,10 @@ class Tasks
     task = @cache.splice(index, 1)[0]
     @robot.brain.data.tasks = @cache
     task
+  checkIfExists: (num) ->
+    check = @cache.map((n) -> n.num).indexOf(parseInt(num))#false
+    #if num of @cache
+      #check = true
 
 module.exports = (robot) ->
   tasks = new Tasks robot
@@ -56,5 +60,9 @@ module.exports = (robot) ->
   robot.respond /(task done|done task) (.+?)$/i, (msg) ->
     tasksToDelete = msg.match[2].split ","
     for taskNum in tasksToDelete
-     task = tasks.deleteByNumber taskNum
-     msg.send ":white_check_mark: Task deleted: ##{task.num} - #{task.task}"
+      taskCheck = tasks.checkIfExists taskNum 
+      if taskCheck >= 0
+        task = tasks.deleteByNumber taskNum
+        msg.send ":white_check_mark: Task deleted: ##{task.num} - #{task.task}"
+      else
+        msg.send "Task not found"
