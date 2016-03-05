@@ -9,7 +9,7 @@
 #
 # Commands:
 #   bobebot task add [task/item] - Add an Item to the list
-#   bobebot task done [task/item,task/item,...] - Remove item(s) from the list
+#   bobebot task done [task #,task #,...] - Remove item(s) from the list
 #   bobebot task list - List all tasks
 #
 # Author:
@@ -54,6 +54,8 @@ module.exports = (robot) ->
       msg.send "There are no tasks"
 
   robot.respond /(task done|done task) #?(\d+)/i, (msg) ->
-    taskNum = msg.match[2]
-    task = tasks.deleteByNumber taskNum
-    msg.send "Task deleted: ##{task.num} - #{task.task}"
+    taskToDelete = msg.split ","
+    for taskNum in tasksToDelete
+    #taskNum = msg.match[2]
+     task = tasks.deleteByNumber taskNum
+     msg.send "Task deleted: ##{task.num} - #{task.task}"
