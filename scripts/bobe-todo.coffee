@@ -8,8 +8,8 @@
 #   None
 #
 # Commands:
-#   bobebot task add [task/item] - Add an Item to the list
-#   bobebot task done [task #,task #,...] - Remove item(s) from the list
+#   bobebot task add [task/item,task/item,...] - Add Item(s) to the list
+#   bobebot task done [task #,task #,...] - Remove Item(s) from the list
 #   bobebot task list - List all tasks
 #
 # Author:
@@ -37,16 +37,16 @@ class Tasks
     @robot.brain.data.tasks = @cache
     task
   checkIfExists: (num) ->
-    check = @cache.map((n) -> n.num).indexOf(parseInt(num))#false
-    #if num of @cache
-      #check = true
+    check = @cache.map((n) -> n.num).indexOf(parseInt(num))
 
 module.exports = (robot) ->
   tasks = new Tasks robot
 
   robot.respond /(task add|add task) (.+?)$/i, (msg) ->
-    task = tasks.add msg.match[2]
-    msg.send ":+1::skin-tone-2: Task added: ##{task.num} - #{task.task}"
+    tasksToAdd = msg.match[2].split ","
+    for newTask in tasksToAdd
+      task = tasks.add newTask
+      msg.send ":+1::skin-tone-2: Task added: ##{task.num} - #{task.task}"
 
   robot.respond /(task list|list tasks)/i, (msg) ->
     if tasks.all().length > 0
