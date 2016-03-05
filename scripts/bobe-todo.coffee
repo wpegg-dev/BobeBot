@@ -57,4 +57,4 @@ module.exports = (robot) ->
     tasksToDelete = msg.match[2].split ","
     for taskNum in tasksToDelete
      task = tasks.deleteByNumber taskNum
-     msg.send "Task deleted: ##{task.num} - #{task.task}"
+     msg.send ":white_check_mark: Task deleted: ##{task.num} - #{task.task}"
