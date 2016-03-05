@@ -63,6 +63,10 @@ module.exports = (robot) ->
       taskCheck = tasks.checkIfExists taskNum 
       if taskCheck >= 0
         task = tasks.deleteByNumber taskNum
-        msg.send ":white_check_mark: Task deleted: ##{task.num} - #{task.task}"
+        if tasks.all().length != 0
+          msg.send ":white_check_mark: Task deleted: ##{task.num} - #{task.task}"
+        else
+          msg.send ":white_check_mark: Task deleted: ##{task.num} - #{task.task}"
+          msg.send ":confetti_ball: No More Tasks! :confetti_ball:"
       else
         msg.send "Task not found"
