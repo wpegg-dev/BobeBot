@@ -54,7 +54,7 @@ module.exports = (robot) ->
       msg.send "There are no tasks"
 
   robot.respond /(task done|done task) #?(\d+)/i, (msg) ->
-    taskToDelete = msg.match[2].split ","
+    tasksToDelete = msg.match[2].split ","
     for taskNum in tasksToDelete
     #taskNum = msg.match[2]
      task = tasks.deleteByNumber taskNum
