@@ -55,7 +55,7 @@ module.exports = (robot) ->
         response += "##{task.num} - #{task.task}\n"
       msg.send response
     else
-      msg.send "There are no tasks"
+      msg.send ":boom: There are no tasks :boom: "
 
   robot.respond /(task done|done task) (.+?)$/i, (msg) ->
     tasksToDelete = msg.match[2].split ","
